@@ -1,0 +1,52 @@
+<div class="articles container" *ngIf="articles">
+  <div class="articles__filter">
+    <p class="articles-filter__title">Filter by keywords</p>
+    <div class="articles-filter__input-wrapper">
+      <img
+        src="./../../../assets/icons/search.svg"
+        alt=""
+        class="articles-filter__img"
+      />
+      <input
+        type="text"
+        placeholder="type text . . ."
+        class="articles-filter__input"
+        [(ngModel)]="searchText"
+      />
+    </div>
+  </div>
+  <div class="articles__results-count">
+    Results:&nbsp;{{ articles.results.length }}
+  </div>
+
+  <div class="articles__cards">
+    <mat-card class="article-card" *ngFor="let item of articles.results">
+      <img
+        mat-card-image
+        class="article-card__img"
+        src="{{ item.image_url }}"
+      />
+
+      <mat-card-content class="article-card__content">
+        <mat-card-subtitle class="article-card__date">
+          <img src="./../../../assets/icons/callendar.svg" alt="" />
+          <span>{{ item.published_at | date : "MMMM d'th,' yyyy" }}</span>
+        </mat-card-subtitle>
+        <mat-card-title
+          class="article-card__title"
+          [appHighlighter]="searchText"
+          >{{ item.title }}
+        </mat-card-title>
+        <p class="article-card__summary" [appHighlighter]="searchText">
+          {{ item.summary }}
+        </p>
+        <div class="article-card__read-more">
+          <button class="btn__bold" [routerLink]="['/articles/', item.id]">
+            <span>Read more</span>
+            <img src="./../../../assets/icons/arr-right.svg" alt="" />
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

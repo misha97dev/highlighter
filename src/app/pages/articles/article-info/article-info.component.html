@@ -1,0 +1,18 @@
+<div class="article-info" *ngIf="article">
+  <div
+    class="article-info__bg"
+    [ngStyle]="{ 'background-image': 'url(' + article.image_url + ')' }"
+  ></div>
+  <div class="container">
+    <div class="article-info__card">
+      <h2 class="article-info__title">{{ article.title }}</h2>
+      <p class="article-info__summary">{{ article.summary }}</p>
+    </div>
+  </div>
+  <div class="article-info__back-btn container">
+    <button [routerLink]="'..'" class="btn__bold">
+      <img src="./../../../../assets/icons/arr-left.svg" alt="" />
+      <span>Back to homepage</span>
+    </button>
+  </div>
+</div>

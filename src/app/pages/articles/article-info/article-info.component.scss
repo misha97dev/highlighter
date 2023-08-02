@@ -1,0 +1,53 @@
+.article-info {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 104px;
+  &__bg {
+    max-width: 100vw;
+    width: 100%;
+    height: 245px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  &__card {
+    z-index: 2;
+    border-radius: 5px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.05);
+    margin-top: -95px;
+    padding: 35px 75px 50px 75px;
+    font-weight: 400;
+  }
+  &__title {
+    font-size: 24px;
+    line-height: normal;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  &__summary {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 150%;
+  }
+  &__back-btn {
+    position: absolute;
+    width: 100%;
+    bottom: 45px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .article-info {
+    &__card {
+      padding: 16px 25px 20px 25px;
+    }
+  }
+}
