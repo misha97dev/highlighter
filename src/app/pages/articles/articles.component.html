@@ -12,15 +12,16 @@
         placeholder="type text . . ."
         class="articles-filter__input"
         [(ngModel)]="searchText"
+        (keyup)="applyFilter($event)"
       />
     </div>
   </div>
   <div class="articles__results-count">
-    Results:&nbsp;{{ articles.results.length }}
+    Results:&nbsp;{{ filteredArticles.length }}
   </div>
 
   <div class="articles__cards">
-    <mat-card class="article-card" *ngFor="let item of articles.results">
+    <mat-card class="article-card" *ngFor="let item of filteredArticles">
       <img
         mat-card-image
         class="article-card__img"
@@ -35,7 +36,8 @@
         <mat-card-title
           class="article-card__title"
           [appHighlighter]="searchText"
-          >{{ item.title }}
+        >
+          {{ item.title }}
         </mat-card-title>
         <p class="article-card__summary" [appHighlighter]="searchText">
           {{ item.summary }}

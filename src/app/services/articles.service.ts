@@ -11,7 +11,7 @@ import { IArticle } from '../models/articles/article.interface';
 export class ArticlesService {
   constructor(private http: HttpClient) {}
   public getAll(): Observable<IArticles> {
-    return this.http.get<IArticles>(`${baseUrl}articles/?limit=6`);
+    return this.http.get<IArticles>(`${baseUrl}articles/?limit=20`);
   }
   public getOne(id: number): Observable<IArticle> {
     return this.http.get<IArticle>(`${baseUrl}articles/${id}`);

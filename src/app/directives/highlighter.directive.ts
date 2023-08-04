@@ -15,7 +15,7 @@ export class HighlighterDirective implements OnChanges {
   constructor(private el: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['searchText'] && this.searchText) {
+    if (this.searchText && changes['searchText']) {
       this.highlightText();
     } else {
       this.removeHighlighter();
@@ -32,6 +32,7 @@ export class HighlighterDirective implements OnChanges {
       resultWords,
       (match: any) => `<span class="highlighted">${match}</span>`
     );
+    if (resultText.length === 0) return;
     this.el.nativeElement.innerHTML = resultText;
   }
   private removeHighlighter() {
